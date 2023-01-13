@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+ * NOTICE OF LICENSE
+ * You may not sell, distribute, sub-license, rent, lease or lend complete or portion of software to anyone.
+ *
+ * DISCLAIMER
+ * Do not edit or add to this file if you wish to upgrade to newer
+ * versions in the future.
+ *
+ * @package   Tezus_ApiCartUpdate
+ * @copyright Copyright (c) 2022 Tezus (https://www.tezus.com.br)
+ * @license  See the LICENSE.md file in module root directory
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Tezus_ApiCartUpdate:etc/system_file.xsd">
+    <system>
+        <section id="tezusWhatsappContact" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Número Whatsapp</label>
+            <tab>tezus</tab>
+            <resource>Tezus_WhatsappButton::tezus_whatsappbutton</resource>
+
+            <group id="tezusWhatsappContactGroup" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Configuração</label>
+                <field id="active" translate="label comment" type="select" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="whatsapp_number" translate="label" sortOrder="0" type="text" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Número Whatsapp</label>
+                    <comment>Ex: (51) 99999-9999</comment>
+                    <depends>
+                        <field id="tezusWhatsappContact/tezusWhatsappContactGroup/active">1</field>
+                    </depends>
+                </field>                
+            </group>
+        </section>
+    </system>
+</config>
